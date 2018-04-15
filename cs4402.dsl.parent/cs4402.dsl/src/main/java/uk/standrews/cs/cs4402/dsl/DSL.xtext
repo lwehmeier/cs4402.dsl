@@ -1,0 +1,9 @@
+grammar uk.standrews.cs.cs4402.dsl.DSL with org.eclipse.xtext.common.Terminals
+
+generate dSL "http://www.standrews.uk/cs/cs4402/dsl/DSL"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

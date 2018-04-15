@@ -1,0 +1,6 @@
+*.class
+out/
+build/
+xtend-gen/
+xtext-gen/
+.idea/

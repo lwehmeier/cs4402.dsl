@@ -1,0 +1,93 @@
+<idea-plugin version="2">
+	<extensions defaultExtensionNs="org.eclipse.xtext.idea">
+		<package
+			uri="http://www.standrews.uk/cs/cs4402/dsl/DSL"
+			class="uk.standrews.cs.cs4402.dsl.dSL.DSLPackage"
+		/>
+		<resourceFactory 
+			type="bcsp"
+			class="org.eclipse.xtext.resource.IResourceFactory"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+		/>
+		<resourceServiceProvider
+			uriExtension="bcsp"
+			class="org.eclipse.xtext.idea.resource.IResourceIdeaServiceProvider"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+		/>
+
+		<lang.setup
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			implementationClass="uk.standrews.cs.cs4402.dsl.idea.DSLIdeaSetup"
+		/>
+	</extensions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<psi.treeChangePreprocessor implementation="uk.standrews.cs.cs4402.dsl.idea.lang.psi.DSLCodeBlockModificationListener"/>
+
+		<fileTypeFactory implementation="uk.standrews.cs.cs4402.dsl.idea.lang.DSLFileTypeFactory"/>
+		<stubElementTypeHolder class="uk.standrews.cs.cs4402.dsl.idea.lang.DSLElementTypeProvider"/>
+		<lang.ast.factory 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.lang.BaseXtextASTFactory"
+		/>
+		<lang.parserDefinition 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="uk.standrews.cs.cs4402.dsl.idea.lang.parser.DSLParserDefinition"
+		/>
+		<lang.findUsagesProvider 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.findusages.BaseXtextFindUsageProvider"
+		/>
+		<lang.refactoringSupport 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.refactoring.BaseXtextRefactoringSupportProvider"
+		/>
+		<lang.namesValidator 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="com.intellij.lang.refactoring.NamesValidator"
+		/>
+		<lang.syntaxHighlighterFactory key="uk.standrews.cs.cs4402.dsl.DSL" implementationClass="uk.standrews.cs.cs4402.dsl.idea.highlighting.DSLSyntaxHighlighterFactory" />
+		<lang.braceMatcher 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="com.intellij.lang.PairedBraceMatcher"
+		/>
+		<annotator 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.annotation.IssueAnnotator"
+		/>
+		<completion.contributor language="uk.standrews.cs.cs4402.dsl.DSL" implementationClass="uk.standrews.cs.cs4402.dsl.idea.completion.DSLCompletionContributor"/>
+		<pom.declarationSearcher implementation="uk.standrews.cs.cs4402.dsl.idea.lang.pom.DSLPomDeclarationSearcher"/>
+
+		<lang.psiStructureViewFactory 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="com.intellij.lang.PsiStructureViewFactory"
+		/>
+		<facetType implementation="uk.standrews.cs.cs4402.dsl.idea.facet.DSLFacetType"/>
+		<lang.documentationProvider 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.documentation.IdeaDocumentationProvider"
+		/>
+		<colorSettingsPage implementation="uk.standrews.cs.cs4402.dsl.idea.highlighting.DSLColorSettingsPage"/>
+		<highlightVisitor implementation="uk.standrews.cs.cs4402.dsl.idea.highlighting.DSLSemanticHighlightVisitor"/>
+
+		<lang.formatter 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="com.intellij.formatting.FormattingModelBuilder"
+		/>
+		<lang.commenter 
+			language="uk.standrews.cs.cs4402.dsl.DSL"
+			factoryClass="uk.standrews.cs.cs4402.dsl.idea.DSLExtensionFactory"
+			implementationClass="com.intellij.lang.CodeDocumentationAwareCommenter"
+		/>
+	</extensions>
+</idea-plugin>
