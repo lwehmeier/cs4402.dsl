@@ -6,11 +6,36 @@
     copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="DSL" basePackage="uk.standrews.cs.cs4402.dsl" disposableProviderFactory="true"
       fileExtensions="bcsp" ecorePackage="DSL.ecore#/">
-    <genClasses ecoreClass="DSL.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="DSL.ecore#//CSP">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//CSP/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//CSP/constraints"/>
     </genClasses>
-    <genClasses ecoreClass="DSL.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="DSL.ecore#//VarNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//VarNode/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//VarNode/varID"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//RangeVariable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//RangeVariable/range"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//SetVariable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//SetVariable/set"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//IntegerRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//IntegerRange/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//IntegerRange/upper"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//IntegerSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//IntegerSet/values"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//BinaryConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraint/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/vn1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/vn2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/tuples"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//BinaryConstraintTuple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraintTuple/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraintTuple/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,0 +1,6 @@
+[submodule "cs4402.dsl.parent/cs4402.solver"]
+	path = cs4402.dsl.parent/cs4402.solver
+	url = git@github.com:lwehmeier/cs4402-solver
+[submodule "cs4402.dsl.parent/cs4402.dsl.solver"]
+	path = cs4402.dsl.parent/cs4402.dsl.solver
+	url = git@github.com:lwehmeier/cs4402-solver

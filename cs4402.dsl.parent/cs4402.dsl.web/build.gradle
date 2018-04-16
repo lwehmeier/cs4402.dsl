@@ -1,6 +1,15 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'org.xtext:xtext-gradle-plugin:1.0.2'
+	}
+}
 plugins {
 	id 'war'
 }
+apply plugin: 'org.xtext.xtend'
 dependencies {
 	compile project(':cs4402.dsl')
 	compile project(':cs4402.dsl.ide')

@@ -2,8 +2,26 @@ grammar uk.standrews.cs.cs4402.dsl.DSL with org.eclipse.xtext.common.Terminals
 
 generate dSL "http://www.standrews.uk/cs/cs4402/dsl/DSL"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+CSP:
+    (variables+=VarNode)*
+    (constraints+=BinaryConstraint)*;
+
+VarNode:
+    RangeVariable | SetVariable;
+
+RangeVariable:
+    'variable' name=ID varID=INT ':' range=IntegerRange;
+SetVariable:
+    'variable' name=ID varID=INT ':' set=IntegerSet;
+IntegerRange:
+    '(' lower=INT ',' upper=INT ')';
+IntegerSet:
+    '{' values+=INT (',' values+=INT)* '}';
+
+BinaryConstraint:
+    'constraint' name=ID '(' vn1=[VarNode] ',' vn2=[VarNode] ')' ':' '{'
+        tuples+=BinaryConstraintTuple (',' tuples+=BinaryConstraintTuple)*
+    '}';
+
+BinaryConstraintTuple:
+    '(' left=INT ',' right=INT ')';

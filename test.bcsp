@@ -1,2 +1,4 @@
-Hello World!
-Hello Xtext!
+variable var1 0 : (0, 42)
+variable var2 1 : {1,2,3,4}
+
+constraint c1 (var1, var2) : {(1,1),(42,42),(1,2)}
