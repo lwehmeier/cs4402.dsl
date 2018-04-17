@@ -22,14 +22,14 @@ import java.io.Reader;
 public class Main {
     public static void main(String[] args){
 
-        System.out.println(parse());
+        System.out.println(parse("../test.bcsp"));
     }
-    public static CSP parse(){
+    public static CSP parse(String file){
         Injector injector = new DSLStandaloneSetup().createInjectorAndDoEMFRegistration();
         XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
         resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
         Resource resource = resourceSet.getResource(
-                URI.createURI("../test.bcsp"), true);
+                URI.createURI(file), true);
         EObject root = resource.getContents().get(0);
         return (CSP)root;
     }

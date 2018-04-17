@@ -17,11 +17,19 @@ IntegerRange:
     '(' lower=INT ',' upper=INT ')';
 IntegerSet:
     '{' values+=INT (',' values+=INT)* '}';
-
 BinaryConstraint:
+    BinaryIntrinsicConstraint | BinaryTupleConstraint;
+BinaryTupleConstraint:
     'constraint' name=ID '(' vn1=[VarNode] ',' vn2=[VarNode] ')' ':' '{'
-        tuples+=BinaryConstraintTuple (',' tuples+=BinaryConstraintTuple)*
+    tuples+=BinaryConstraintTuple (',' tuples+=BinaryConstraintTuple )*
+    '}';
+BinaryIntrinsicConstraint:
+    'constraint' name=ID '(' vn1=[VarNode] ',' vn2=[VarNode] ')' ':' '{'
+    intrinsic=BinaryConstraintIntrinsic
     '}';
 
 BinaryConstraintTuple:
     '(' left=INT ',' right=INT ')';
+
+BinaryConstraintIntrinsic:
+    symbol='<'|'>'|'='|'<='|'>=';

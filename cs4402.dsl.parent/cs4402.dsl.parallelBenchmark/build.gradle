@@ -1,0 +1,25 @@
+apply plugin: 'application'
+mainClassName = 'uk.standrews.cs.cs4402.benchmark.Main'
+
+def mpjHome = "mpj-v0_44"
+def mpjStarter = files("$mpjHome/lib/starter.jar")
+def mpjJar = files("$mpjHome/lib/mpj.jar")
+def mpjClasspath = sourceSets.main.runtimeClasspath - mpjJar
+
+dependencies {
+    compile project(':cs4402.dsl.solver')
+    compile mpjJar
+}
+run {
+    environment "MPJ_HOME", "$mpjHome"
+    main = 'runtime.starter.MPJRun'
+    classpath = mpjStarter
+    args mainClassName, '-cp', mpjClasspath.asPath, '-np', 3
+    dependsOn classes
+}
+task startCluster (type: Exec){
+    commandLine 'bash', '-c', "source ~/.profile; $mpjHome/bin/mpjboot machines.hosts"
+}
+task stopCluster (type: Exec){
+    commandLine 'bash', '-c', "source ~/.profile; $mpjHome/bin/mpjhalt machines.hosts"
+}

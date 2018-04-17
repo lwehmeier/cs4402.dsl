@@ -31,11 +31,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraint/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/vn1"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/vn2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryConstraint/tuples"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//BinaryTupleConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryTupleConstraint/tuples"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//BinaryIntrinsicConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DSL.ecore#//BinaryIntrinsicConstraint/intrinsic"/>
     </genClasses>
     <genClasses ecoreClass="DSL.ecore#//BinaryConstraintTuple">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraintTuple/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraintTuple/right"/>
+    </genClasses>
+    <genClasses ecoreClass="DSL.ecore#//BinaryConstraintIntrinsic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DSL.ecore#//BinaryConstraintIntrinsic/symbol"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

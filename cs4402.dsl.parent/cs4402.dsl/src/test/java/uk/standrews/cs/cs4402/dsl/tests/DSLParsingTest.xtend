@@ -10,19 +10,24 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import uk.standrews.cs.cs4402.dsl.dSL.Model
+import uk.standrews.cs.cs4402.dsl.dSL.CSP
 
 @RunWith(XtextRunner)
 @InjectWith(DSLInjectorProvider)
 class DSLParsingTest{
 
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<CSP> parseHelper
 
 	@Test 
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			variable var1 0 : (0, 42)
+			variable var3 2 : (4, 10)
+			variable var2 1 : {1,2,4}
+
+			constraint c1 (var1, var2) : {(1,1),(42,42),(1,2)}
+			constraint c2 (var2, var3) : {<}
 		''')
 		Assert.assertNotNull(result)
 	}
